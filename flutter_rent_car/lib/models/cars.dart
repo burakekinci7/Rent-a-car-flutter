@@ -1,12 +1,14 @@
+import 'package:flutter_rent_car/utils/database_helper.dart';
+
 class Cars {
   String? licence;
   String? model;
-  bool? status;
+  int? status; //sql vari tabanı boolean değerli true false diye kaydediyor
   int? hp;
-  bool? gear;
+  int? gear; //
   int? peopleNum;
   int? pricing;
-  //image yapılacak
+  String? path; //image path
 
   Cars({
     this.licence,
@@ -16,9 +18,10 @@ class Cars {
     this.gear,
     this.peopleNum,
     this.pricing,
+    this.path,
   });
 
-  Cars.fromMap(Map<String, dynamic> json) {
+  Cars.fromMap(Map<dynamic, dynamic> json) {
     licence = json["licence"];
     model = json["model"];
     status = json["status"];
@@ -26,6 +29,20 @@ class Cars {
     gear = json["gear"];
     peopleNum = json["peopleNum"];
     pricing = json["pricing"];
+    path = json["path"];
   }
   //to map hapısı kullanılacak
+
+  Map<String, dynamic> toJMap() {
+    return {
+      DataBaseHelper.columnlisance: licence,
+      DataBaseHelper.columnModel: model,
+      DataBaseHelper.columnstatus: status,
+      DataBaseHelper.columnhp: hp,
+      DataBaseHelper.columngear: gear,
+      DataBaseHelper.columnpeopleNum: peopleNum,
+      DataBaseHelper.columnpricing: pricing,
+      DataBaseHelper.columnPath: path,
+    };
+  }
 }

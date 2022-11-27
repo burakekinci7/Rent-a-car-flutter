@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rent_car/pages/my_home_page.dart';
-import 'package:flutter_rent_car/pages/user_register.dart';
-import 'package:flutter_rent_car/pages/car_list_admin.dart';
+import 'package:flutter_rent_car/pages/user/my_home_page.dart';
+import 'package:flutter_rent_car/pages/user_register/user_register.dart';
+import 'package:flutter_rent_car/pages/admin/car_list_admin.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -9,7 +9,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Litfen Size Uygun olanı seçiniz")),
+      appBar: AppBar(
+        title: const Text("Lütfen Size Uygun Olanı Seçiniz"),
+        actions: const [Icon(Icons.flash_on)],
+      ),
       body: Center(
         child: Column(
           children: [
@@ -20,7 +23,7 @@ class LoginScreen extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const MyHomePage()));
                 },
-                child: const Text("Müşteri Giriş")),
+                child: const Text("Müşteri Girişi")),
             ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -36,7 +39,7 @@ class LoginScreen extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => const CarsList()));
                 },
-                child: const Text("Admin Girişii")),
+                child: const Text("Admin Girişi")),
           ],
         ),
       ),
